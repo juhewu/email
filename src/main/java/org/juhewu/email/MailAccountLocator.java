@@ -7,18 +7,18 @@ import java.util.List;
  *
  * @author duanjw
  */
-public interface EmailAccountLocator {
+public interface MailAccountLocator {
     /**
      * 所有邮箱账户
      *
      * @return
      */
-    List<EmailAccount> getEmailAccounts();
+    List<MailAccount> getEmailAccounts();
 
     /**
      * 根据邮箱账户id获取邮箱账户
      * @param id
      * @return
      */
-    EmailAccount getEmailAccount(String id);
+    MailAccount getEmailAccount(String id);
 }

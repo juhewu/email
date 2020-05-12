@@ -5,5 +5,5 @@ package org.juhewu.email;
  *
  * @author duanjw
  */
-public interface EmailAccountRepository extends EmailAccountLocator, EmailAccountWriter {
+public interface MailAccountRepository extends MailAccountLocator, MailAccountWriter {
 }

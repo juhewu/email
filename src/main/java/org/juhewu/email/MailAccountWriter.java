@@ -7,17 +7,17 @@ import java.util.List;
  *
  * @author duanjw
  */
-public interface EmailAccountWriter {
+public interface MailAccountWriter {
     /**
      * 新增邮箱账户
-     * @param emailAccount
+     * @param mailAccount
      */
-    void add(EmailAccount emailAccount);
+    void add(MailAccount mailAccount);
     /**
      * 批量新增邮箱账户
-     * @param emailAccounts
+     * @param mailAccounts
      */
-    void add(List<EmailAccount> emailAccounts);
+    void add(List<MailAccount> mailAccounts);
 
     /**
      * 根据id删除邮箱账户

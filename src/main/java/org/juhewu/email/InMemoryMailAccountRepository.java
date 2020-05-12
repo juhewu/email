@@ -14,8 +14,8 @@ import static java.util.Collections.synchronizedMap;
  *
  * @author duanjw
  */
-public class InMemoryEmailAccountRepository implements EmailAccountRepository {
-    private final Map<String, EmailAccount> emailAccounts = synchronizedMap(
+public class InMemoryMailAccountRepository implements MailAccountRepository {
+    private final Map<String, MailAccount> emailAccounts = synchronizedMap(
             new LinkedHashMap());
 
     /**
@@ -23,7 +23,7 @@ public class InMemoryEmailAccountRepository implements EmailAccountRepository {
      * @return
      */
     @Override
-    public List<EmailAccount> getEmailAccounts() {
+    public List<MailAccount> getEmailAccounts() {
         return new ArrayList<>(emailAccounts.values());
     }
 
@@ -33,26 +33,26 @@ public class InMemoryEmailAccountRepository implements EmailAccountRepository {
      * @return
      */
     @Override
-    public EmailAccount getEmailAccount(String id) {
+    public MailAccount getEmailAccount(String id) {
         return emailAccounts.get(id);
     }
 
     /**
      * 新增邮箱账户
-     * @param emailAccount
+     * @param mailAccount
      */
     @Override
-    public void add(EmailAccount emailAccount) {
-        emailAccounts.put(emailAccount.getId(), emailAccount);
+    public void add(MailAccount mailAccount) {
+        emailAccounts.put(mailAccount.getId(), mailAccount);
     }
 
     /**
      * 批量新增邮箱账户
-     * @param emailAccounts
+     * @param mailAccounts
      */
     @Override
-    public void add(List<EmailAccount> emailAccounts) {
-        this.emailAccounts.putAll(emailAccounts.stream().collect(Collectors.toMap(EmailAccount::getId, Function.identity())));
+    public void add(List<MailAccount> mailAccounts) {
+        this.emailAccounts.putAll(mailAccounts.stream().collect(Collectors.toMap(MailAccount::getId, Function.identity())));
     }
 
     /**

@@ -4,7 +4,11 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileStore;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 邮箱账户
@@ -13,7 +17,12 @@ import java.time.LocalDateTime;
  */
 @Data
 @Accessors(chain = true)
-public class EmailAccount {
+public class MailAccount {
+    private static final Charset DEFAULT_CHARSET;
+    public MailAccount() {
+        this.defaultEncoding = DEFAULT_CHARSET;
+        this.properties = new HashMap();
+    }
     /**
      * 主键
      */
@@ -41,17 +50,27 @@ public class EmailAccount {
      */
     private Integer port;
     /**
-     * 是否需要用户名密码验证
-     */
-    private Boolean auth;
-    /**
      * 用户名
      */
-    private String user;
+    private String username;
     /**
      * 密码
      */
-    private String pass;
+    private String password;
+
+    private String protocol;
+    private Charset defaultEncoding;
+    private Map<String, String> properties;
+
+    static {
+        DEFAULT_CHARSET = StandardCharsets.UTF_8;
+    }
+
+    /**
+     * 是否需要用户名密码验证
+     */
+    private Boolean auth;
+
     /**
      * 发送方，遵循RFC-822标准
      */
@@ -99,4 +118,5 @@ public class EmailAccount {
      * Socket连接超时值，单位毫秒，缺省值不超时
      */
     private long connectionTimeout;
+
 }
