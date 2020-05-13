@@ -1,6 +1,7 @@
 package org.juhewu.email;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,27 +11,30 @@ import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @Slf4j
+@DisplayName("邮件账户测试")
 class JavaMailSendersImplTest {
     @Test
- public void send(){
+    @DisplayName("测试邮件账户初始化、发送器性能")
+    public void send() {
 //        Scanner s = new Scanner(System.in);
 //        s.nextInt();
         long time4 = System.currentTimeMillis();
         List<MailAccount> mailAccounts = new ArrayList<>();
         int size = 1000;
         for (int i = 0; i < size; i++) {
-            MailAccount mailAccount = new MailAccount().setId(i+"").setHost("smtp.163.com").setUsername("18630070626").setPassword("CBTAWAUHZZXLVQLJ");
+            MailAccount mailAccount = new MailAccount().setId(i + "").setHost("smtp.163.com").setUsername("18630070626").setPassword("CBTAWAUHZZXLVQLJ");
             mailAccounts.add(mailAccount);
         }
         MailAccountRepository mailAccountRepository = new InMemoryMailAccountRepository();
         mailAccountRepository.add(mailAccounts);
         JavaMailSenders javaMailSenders = new JavaMailSendersImpl(mailAccountRepository);
         long time5 = System.currentTimeMillis();
-        log.info("初始{}个化账户用时：{}",size, time5-time4);
+        log.info("初始{}个化账户用时：{}", size, time5 - time4);
         for (int i = 0; i < size; i++) {
             long time1 = System.currentTimeMillis();
-            JavaMailSender javaMailSender = javaMailSenders.get(i+"");
+            JavaMailSender javaMailSender = javaMailSenders.get(i + "");
             long time2 = System.currentTimeMillis();
             SimpleMailMessage message = new SimpleMailMessage();
 
@@ -48,8 +52,8 @@ class JavaMailSendersImplTest {
 //            log.info("发送短信用时：{}", time3-time2);
         }
         long time6 = System.currentTimeMillis();
-        log.info("初始化{}个javaMailSenders用时：{}", size, time6-time5);
+        log.info("初始化{}个javaMailSenders用时：{}", size, time6 - time5);
 //        s = new Scanner(System.in);
 //        s.nextInt();
- }
+    }
 }
