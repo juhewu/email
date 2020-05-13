@@ -7,6 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +30,11 @@ class JavaMailSendersImplTest {
         }
         MailAccountRepository mailAccountRepository = new InMemoryMailAccountRepository();
         mailAccountRepository.add(mailAccounts);
-        JavaMailSenders javaMailSenders = new JavaMailSendersImpl(mailAccountRepository);
+
+        // 统一入口
+        MailAccountLocator mailAccountLocator = new CompositeMailAccountLocator(Arrays.asList(mailAccountRepository));
+        JavaMailSenders javaMailSenders = new JavaMailSendersImpl(mailAccountLocator);
+
         long time5 = System.currentTimeMillis();
         log.info("初始{}个化账户用时：{}", size, time5 - time4);
         for (int i = 0; i < size; i++) {
