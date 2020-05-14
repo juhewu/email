@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 /**
  * 邮件账户不存在异常

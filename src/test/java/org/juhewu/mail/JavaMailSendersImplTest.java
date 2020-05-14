@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
@@ -9,9 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @DisplayName("邮件账户测试")

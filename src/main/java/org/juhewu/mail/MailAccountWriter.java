@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import java.util.List;
 

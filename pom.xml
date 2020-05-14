@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.juhewu</groupId>
-    <artifactId>email</artifactId>
+    <artifactId>mail</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
-    <name>juhewu email</name>
-    <description>juhewu email</description>
+    <name>juhewu mail</name>
+    <description>juhewu mail</description>
 
 <!--    必须-->
-    <url>https://github.com/juhewu/email</url>
+    <url>https://github.com/juhewu/mail</url>
 
     <properties>
 
@@ -75,15 +75,15 @@
 
 
     <scm>
-        <url>https://github.com/juhewu/email</url>
-        <connection>scm:git:git:////github.com/juhewu/email.git</connection>
-        <developerConnection>scm:git:ssh://git@//github.com/juhewu/email.git
+        <url>https://github.com/juhewu/mail</url>
+        <connection>scm:git:git:////github.com/juhewu/mail.git</connection>
+        <developerConnection>scm:git:ssh://git@//github.com/juhewu/mail.git
         </developerConnection>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/juhewu/email/issues</url>
+        <url>https://github.com/juhewu/mail/issues</url>
     </issueManagement>
 
     <mailingLists>

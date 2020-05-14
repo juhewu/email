@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import lombok.AllArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,7 +20,7 @@ public class JavaMailSendersImpl implements JavaMailSenders {
     @Override
     public JavaMailSender get(String key) {
         JavaMailSenderImpl sender = new JavaMailSenderImpl();
-        MailAccount mailAccount = Optional.ofNullable(mailAccountLocator.getEmailAccount(key)).orElseThrow(MailAccountNotFoundException::new);
+        MailAccount mailAccount = Optional.ofNullable(mailAccountLocator.getMailAccount(key)).orElseThrow(MailAccountNotFoundException::new);
         this.applyProperties(mailAccount, sender);
         return sender;
     }

@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ public interface MailAccountLocator {
      *
      * @return
      */
-    List<MailAccount> getEmailAccounts();
+    List<MailAccount> getMailAccounts();
 
     /**
      * 根据邮箱账户id获取邮箱账户
      * @param id
      * @return
      */
-    MailAccount getEmailAccount(String id);
+    MailAccount getMailAccount(String id);
 }

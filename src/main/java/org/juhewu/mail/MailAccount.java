@@ -1,11 +1,11 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileStore;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 @Data
 @Accessors(chain = true)
-public class MailAccount {
+public class MailAccount implements Serializable {
     private static final Charset DEFAULT_CHARSET;
     public MailAccount() {
         this.defaultEncoding = DEFAULT_CHARSET;

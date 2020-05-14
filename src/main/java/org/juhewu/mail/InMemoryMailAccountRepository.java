@@ -1,4 +1,4 @@
-package org.juhewu.email;
+package org.juhewu.mail;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -15,7 +15,7 @@ import static java.util.Collections.synchronizedMap;
  * @author duanjw
  */
 public class InMemoryMailAccountRepository implements MailAccountRepository {
-    private final Map<String, MailAccount> emailAccounts = synchronizedMap(
+    private final Map<String, MailAccount> mailAccounts = synchronizedMap(
             new LinkedHashMap());
 
     /**
@@ -23,8 +23,8 @@ public class InMemoryMailAccountRepository implements MailAccountRepository {
      * @return
      */
     @Override
-    public List<MailAccount> getEmailAccounts() {
-        return new ArrayList<>(emailAccounts.values());
+    public List<MailAccount> getMailAccounts() {
+        return new ArrayList<>(mailAccounts.values());
     }
 
     /**
@@ -33,8 +33,8 @@ public class InMemoryMailAccountRepository implements MailAccountRepository {
      * @return
      */
     @Override
-    public MailAccount getEmailAccount(String id) {
-        return emailAccounts.get(id);
+    public MailAccount getMailAccount(String id) {
+        return mailAccounts.get(id);
     }
 
     /**
@@ -43,7 +43,7 @@ public class InMemoryMailAccountRepository implements MailAccountRepository {
      */
     @Override
     public void add(MailAccount mailAccount) {
-        emailAccounts.put(mailAccount.getId(), mailAccount);
+        mailAccounts.put(mailAccount.getId(), mailAccount);
     }
 
     /**
@@ -52,7 +52,7 @@ public class InMemoryMailAccountRepository implements MailAccountRepository {
      */
     @Override
     public void add(List<MailAccount> mailAccounts) {
-        this.emailAccounts.putAll(mailAccounts.stream().collect(Collectors.toMap(MailAccount::getId, Function.identity())));
+        this.mailAccounts.putAll(mailAccounts.stream().collect(Collectors.toMap(MailAccount::getId, Function.identity())));
     }
 
     /**
@@ -61,7 +61,7 @@ public class InMemoryMailAccountRepository implements MailAccountRepository {
      */
     @Override
     public void delete(String id) {
-        emailAccounts.remove(id);
+        mailAccounts.remove(id);
     }
 
     /**
